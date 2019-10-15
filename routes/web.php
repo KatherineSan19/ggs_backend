@@ -1,5 +1,5 @@
 <?php
-
+use App\Models\Prueba;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -12,5 +12,15 @@
 */
 
 $router->get('/', function () use ($router) {
+
     return $router->app->version();
+});
+
+//Prueba
+
+$router->get('/prueba', function () use ($router) {
+  //return response()->json("Ruta prueba");
+  $results = DB::select("SELECT * FROM prueba");
+  return response()->json($results);
+
 });
