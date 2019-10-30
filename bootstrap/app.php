@@ -98,6 +98,8 @@ $app->router->group([
     require __DIR__.'/../routes/noticias.php';
     require __DIR__.'/../routes/el_equipo.php';
     require __DIR__.'/../routes/proyectos.php';
+    require __DIR__.'/../routes/contactos.php';
+    require __DIR__.'/../routes/textos.php';
 });
 
 return $app;

@@ -52,43 +52,12 @@ $router->post('/usuarios/nuevo', function (Request $request) use ($router) {
   }
 });
 
-$router->get('/home', function () use ($router) {
-  //$text = DB::table('textos_parametrizados')->find(1);
-  $home = DB::table('textos_parametrizados')->where('parametro', 'HOME_DESCRIPCION')->get();
-  $response = new stdClass;
-  if(count($home)>0){
-    $response->home = $home[0];
-    return response()->json($response);
-  }else{
-    $response->message = "No existe el registro de contacto";
-    return response()->json($response, 400);
-  }
-});
 
 
-$router->get('/contacto', function () use ($router) {
-  $contact = DB::table('contactos')->select('ubicacion', 'direccion','ciudad','pais','telefono','correo')->get();
-  $response = new stdClass;
-  if(count($contact)>0){
-    $response->contacto = $contact[0];
-    return response()->json($response);
-  }else{
-    $response->message = "No existe el registro de contacto";
-    return response()->json($response, 400);
-  }
 
-});
 
 // $router->get('/equipo', function () use ($router) {
 //   $integrantes = DB::table('el_equipo')->distinct('activo','fecha_creacion','usuario_creacion')->get();
 //   return response()->json($integrantes);
 //
 // });
-
-
-
-$router->get('/oficina', function () use ($router) {
-  $text = DB::table('textos_parametrizados')->where('parametro', 'CONTACTO_BIENVENIDOS')->value('html');
-  return response()->json($text);
-
-});
