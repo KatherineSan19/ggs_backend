@@ -1,8 +1,6 @@
 <?php
 use Illuminate\Http\Request;
 
-
-
 $router->get('/equipo', function () use ($router) {
   $integrante = DB:: select("SELECT id_integrante, nombre, apellido, img_integrante, correo, html, profesion
                             FROM el_equipo");
@@ -12,7 +10,7 @@ $router->get('/equipo', function () use ($router) {
       return response()->json($response);
 
   }else{
-    $response->message = "No existe el registro de contacto";
+    $response->message = "Sorry, there is no record";
     return response()->json($response, 400);
   }
 
